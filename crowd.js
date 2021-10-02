@@ -21,6 +21,7 @@ let list = document.getElementById('list');
 let selectBamboo = document.getElementById('select-bamboo');
 let bamboo = document.getElementById('bamboo-stand');
 let edition = document.getElementById('black');
+
 function bookMark() {
     if (greenBookmark.classList.contains('hidden')) {
         grayBookmark.classList.add('hidden');
@@ -104,8 +105,36 @@ function rewardClick() {
     bamboo.checked = true;
     checked();
 }
+
 function editionReward() {
     backThisProject();
     edition.checked = true;
     blackedition();
 }
+
+let pops = document.getElementById('pops');
+let twentyFive = document.getElementById('twenty-five');
+let error = document.getElementById('error');
+function success() {
+
+    setTimeout(function () {
+        if (twentyFive.value >= 25) {
+            pops.classList.remove('hidden');
+            pops.classList.add('flex');
+            complete();
+        }else{
+            error.classList.remove('hidden');
+            error.classList.add('flex');
+        }
+    }, 500);
+    setTimeout(function (){
+        if (pops.classList.contains('flex')){
+            pops.classList.add('hidden');
+            pops.classList.remove('flex');
+        }else{
+            error.classList.add('hidden');
+            error.classList.remove('flex');
+        }
+    },1200);
+}
+
